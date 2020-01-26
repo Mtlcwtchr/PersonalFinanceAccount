@@ -1,6 +1,7 @@
 package by.epam.mtlcwtchr.pfa.client.controller.command;
 
 import by.epam.mtlcwtchr.pfa.client.controller.command.exception.CommandNotSupportedException;
+import by.epam.mtlcwtchr.pfa.client.controller.command.type.CommandType;
 import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
 
 import java.util.HashMap;

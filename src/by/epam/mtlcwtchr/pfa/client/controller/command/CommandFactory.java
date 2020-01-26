@@ -1,5 +1,6 @@
 package by.epam.mtlcwtchr.pfa.client.controller.command;
 
+import by.epam.mtlcwtchr.pfa.client.controller.command.type.CommandType;
 import by.epam.mtlcwtchr.pfa.client.service.Profile;
 import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
 

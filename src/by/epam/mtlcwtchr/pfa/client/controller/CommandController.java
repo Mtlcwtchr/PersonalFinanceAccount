@@ -1,7 +1,7 @@
 package by.epam.mtlcwtchr.pfa.client.controller;
 
 import by.epam.mtlcwtchr.pfa.client.controller.command.CommandFactory;
-import by.epam.mtlcwtchr.pfa.client.controller.command.CommandType;
+import by.epam.mtlcwtchr.pfa.client.controller.command.type.CommandType;
 import by.epam.mtlcwtchr.pfa.client.controller.command.exception.CommandNotSupportedException;
 import by.epam.mtlcwtchr.pfa.client.service.Chronicler;
 import by.epam.mtlcwtchr.pfa.client.service.Profile;

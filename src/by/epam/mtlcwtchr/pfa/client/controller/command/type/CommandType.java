@@ -1,4 +1,4 @@
-package by.epam.mtlcwtchr.pfa.client.controller.command;
+package by.epam.mtlcwtchr.pfa.client.controller.command.type;
 
 public enum CommandType {
 
