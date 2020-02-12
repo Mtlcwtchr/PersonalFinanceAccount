@@ -4,11 +4,10 @@ import by.epam.mtlcwtchr.pfa.client.bean.User;
 import by.epam.mtlcwtchr.pfa.client.controller.CommandController;
 import by.epam.mtlcwtchr.pfa.client.dao.ClientDAO;
 import by.epam.mtlcwtchr.pfa.client.dao.impl.ConsoleClientDAO;
-import by.epam.mtlcwtchr.pfa.client.service.Chronicler;
 import by.epam.mtlcwtchr.pfa.client.service.Profile;
 import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
-import by.epam.mtlcwtchr.pfa.client.service.impl.Admin;
-import by.epam.mtlcwtchr.pfa.client.service.impl.Customer;
+import by.epam.mtlcwtchr.pfa.client.service.impl.AdminService;
+import by.epam.mtlcwtchr.pfa.client.service.impl.CustomerService;
 
 public class Main {
 
@@ -43,9 +42,9 @@ public class Main {
         CommandController.determineCommand(profile, signRequest);
         User user = profile.getUser();
         if(profile.getUser().getAccessModifier()){
-            profile = new Admin();
+            profile = new AdminService();
         } else{
-            profile = new Customer();
+            profile = new CustomerService();
         }
         profile.setUser(user);
         return profile;

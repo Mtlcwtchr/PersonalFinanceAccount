@@ -4,13 +4,11 @@ import by.epam.mtlcwtchr.pfa.client.bean.Account;
 import by.epam.mtlcwtchr.pfa.client.controller.command.exception.CommandNotSupportedException;
 import by.epam.mtlcwtchr.pfa.client.service.Profile;
 import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
-import by.epam.mtlcwtchr.pfa.client.service.impl.Customer;
+import by.epam.mtlcwtchr.pfa.client.service.impl.CustomerService;
 
 import java.util.HashMap;
 
-public class WithdrawCommandFactory extends CommandFactory{
-
-    Profile profile;
+public class WithdrawCommandFactory extends ProfiledCommandFactory{
 
     WithdrawCommandFactory(Profile profile){
         this.profile = profile;
@@ -18,7 +16,7 @@ public class WithdrawCommandFactory extends CommandFactory{
 
     public void execute(String... args) throws ServiceException {
         try {
-            ((Customer) profile).withdraw(Integer.parseInt(args[0], 16), Integer.parseInt(args[1]));
+            ((CustomerService) profile).withdraw(Integer.parseInt(args[0], 16), Integer.parseInt(args[1]));
         } catch (ClassCastException ex){
             throw new ServiceException("Wrong rules");
         }

@@ -4,14 +4,12 @@ import by.epam.mtlcwtchr.pfa.client.bean.Account;
 import by.epam.mtlcwtchr.pfa.client.controller.command.exception.CommandNotSupportedException;
 import by.epam.mtlcwtchr.pfa.client.service.Profile;
 import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
-import by.epam.mtlcwtchr.pfa.client.service.impl.Admin;
-import by.epam.mtlcwtchr.pfa.client.service.impl.Customer;
+import by.epam.mtlcwtchr.pfa.client.service.impl.AdminService;
+import by.epam.mtlcwtchr.pfa.client.service.impl.CustomerService;
 
 import java.util.HashMap;
 
-public class ShowAccountsCommandFactory extends CommandFactory{
-
-    Profile profile;
+public class ShowAccountsCommandFactory extends ProfiledCommandFactory{
 
     ShowAccountsCommandFactory(Profile profile){
         this.profile = profile;
@@ -24,9 +22,9 @@ public class ShowAccountsCommandFactory extends CommandFactory{
     public HashMap<Integer, Account> executeWithReturn(String... args) throws ServiceException{
         try {
             if (args==null || args.length == 0) {
-                return ((Customer) profile).getAccounts();
+                return ((CustomerService) profile).getAccounts();
             } else {
-                return ((Admin) profile).getAccounts(Integer.parseInt(args[0], 16));
+                return ((AdminService) profile).getAccounts(Integer.parseInt(args[0], 16));
             }
         } catch (ClassCastException ex){
             throw new ServiceException("Wrong rules");

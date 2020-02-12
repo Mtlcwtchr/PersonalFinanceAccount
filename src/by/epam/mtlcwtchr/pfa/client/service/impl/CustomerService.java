@@ -11,7 +11,7 @@ import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
 
 import java.util.HashMap;
 
-public class Customer extends Profile implements CustomerRules {
+public class CustomerService extends Profile implements CustomerRules {
 
     @Override
     public HashMap<Integer, Account> getAccounts() throws ServiceException {

@@ -13,7 +13,7 @@ import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
 
 import java.util.HashMap;
 
-public class Admin extends Profile implements AdminRules {
+public class AdminService extends Profile implements AdminRules {
 
     @Override
     public HashMap<Integer, Account> getAccounts(int ownerID) throws ServiceException {

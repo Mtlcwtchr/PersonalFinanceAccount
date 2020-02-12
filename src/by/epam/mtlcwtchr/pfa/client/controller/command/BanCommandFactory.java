@@ -4,13 +4,11 @@ import by.epam.mtlcwtchr.pfa.client.bean.Account;
 import by.epam.mtlcwtchr.pfa.client.controller.command.exception.CommandNotSupportedException;
 import by.epam.mtlcwtchr.pfa.client.service.Profile;
 import by.epam.mtlcwtchr.pfa.client.service.exception.ServiceException;
-import by.epam.mtlcwtchr.pfa.client.service.impl.Admin;
+import by.epam.mtlcwtchr.pfa.client.service.impl.AdminService;
 
 import java.util.HashMap;
 
-public class BanCommandFactory extends CommandFactory{
-
-    Profile profile;
+    public class BanCommandFactory extends  ProfiledCommandFactory{
 
     BanCommandFactory(Profile profile){
         this.profile = profile;
@@ -18,7 +16,7 @@ public class BanCommandFactory extends CommandFactory{
 
     public void execute(String... args) throws ServiceException {
         try {
-            ((Admin) profile).setBanned(Integer.parseInt(args[0], 16), true);
+            ((AdminService) profile).setBanned(Integer.parseInt(args[0], 16), true);
         } catch (ClassCastException ex){
             throw new ServiceException("Wrong rules");
         }
